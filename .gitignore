@@ -1,0 +1,48 @@
+# Data (569 GB — never goes into git)
+data/raw/
+data/processed/
+data/interim/
+*.dcm
+
+# Model weights / checkpoints
+*.pt
+*.pth
+*.ckpt
+*.onnx
+weights/
+checkpoints/
+
+# Logs / experiment outputs
+logs/
+mlruns/
+wandb/
+experiments/*/outputs/
+experiments/*/logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+.python-version
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets / config overrides
+.env
+kaggle.json

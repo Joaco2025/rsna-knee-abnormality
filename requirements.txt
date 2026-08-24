@@ -1,0 +1,35 @@
+# Core
+numpy
+pandas
+scipy
+scikit-learn
+
+# DICOM / imaging
+pydicom
+SimpleITK
+opencv-python
+Pillow
+
+# Deep learning
+torch
+torchvision
+timm
+
+# Viz / EDA
+matplotlib
+seaborn
+plotly
+
+# NLP (reportes multilingües)
+langdetect
+
+# Config / experiment tracking
+pyyaml
+tqdm
+
+# Notebooks
+jupyter
+ipykernel
+
+# Testing
+pytest

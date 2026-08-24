@@ -1,0 +1,27 @@
+# Config de referencia para el primer baseline.
+# Editar cuando exista código real que lo consuma.
+
+experiment_name: "001_baseline"
+seed: 42
+
+data:
+  train_csv: "data/raw/train.csv"
+  train_series_csv: "data/raw/train_series.csv"
+  dicom_root: "data/raw/train_series"
+  image_size: 224
+
+model:
+  architecture: "resnet18"
+  pretrained: true
+  num_classes: 12
+
+training:
+  batch_size: 16
+  epochs: 10
+  learning_rate: 1e-4
+  optimizer: "adamw"
+
+validation:
+  strategy: "group_k_fold"
+  group_col: "StudyInstanceUID"
+  n_splits: 5
