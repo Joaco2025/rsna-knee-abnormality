@@ -30,27 +30,35 @@ See `data/README.md` for the complete data structure and the rules we must follo
 
 ```text
 rsna-knee-abnormality/
-
 │
 ├── README.md
-├── .gitignore
-├── requirements.txt
+├── AGENT_GUIDELINES.md
+├── AGENT_WORKFLOW.md
+├── ESTRUCTURA_PROYECTO.md
+│
+├── train.csv
+├── train_series.csv
+├── test.csv
+├── test_series.csv
+├── sample_submission.csv
+│
+├── Diccionario_RSNA_Knee.xlsx
+│
+├── configs/
+│   └── baseline.yaml
 │
 ├── data/
 │   └── README.md          # data documentation (data is NOT stored in git)
 │
-├── notebooks/             # exploration and analysis
+├── notebooks/             # exploration, analysis, and experiments
+│   └── README.md
 │
-├── src/rsna_knee/         # reusable pipeline code
-│   ├── data/              # loaders, dataset, splits
-│   ├── preprocessing/     # intensity, orientation, transforms
-│   ├── models/            # baseline, vision, multimodal
-│   ├── training/          # train, evaluate, losses
-│   └── utils/             # config, logging, seed
+├── src/rsna_knee/         # reusable, validated package modules
+│   └── data/              # dataset audit and validation
+│       └── audit.py
 │
-├── configs/               # experiment configuration (yaml)
-├── experiments/           # experiment tracking and results
-└── tests/                 # loader/dataset/preprocessing tests
+└── tests/                 # automated unit tests
+    └── test_audit.py
 ```
 
 ## Setup
@@ -65,15 +73,11 @@ pip install -r requirements.txt
 
 Place the data downloaded from Kaggle in `data/raw/` following the structure described in `data/README.md` (data is not uploaded to git).
 
-## Workflow
-
-Each team member works on their own `feature/...` branch and opens PRs into `main`.
-
-See `CONTRIBUTING.md` (or the corresponding section) for the team's division of responsibilities.
-
 ## Philosophy
 
-We are not trying to build the most complex model possible from day one. The order is:
+The project follows a notebook-driven research workflow: notebooks serve as the primary environment for data exploration, MRI visualization, hypothesis testing, and model experimentation.
+
+Reusable Python modules in `src/rsna_knee/` are introduced only when a piece of logic has been thoroughly explored, validated, and there is a clear justification to reuse it in the pipeline.
 
 ```text
 Dataset → Validation → Baseline → Experiment → Analysis → Improvement → Kaggle
